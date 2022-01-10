@@ -1,0 +1,287 @@
+@font-face {
+    font-family: 'yekan';
+    src: url("../font/iranyekanwebregularfanum.ttf");
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'yekan';
+}
+
+main{
+    display: flex;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+}
+
+img{
+    width: inherit;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.full-width{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.mobile-side{
+    display: none;
+}
+
+/* side */
+.side{
+    flex-basis: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 20px;
+    border-radius: 45px;
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 0;
+    background: -webkit-linear-gradient(to top, #0f2027, #203a43, #2c5364); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #0f2027, #203a43, #2c5364); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+}
+
+.side-heading{
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.note-container{
+    direction: ltr;
+    margin-bottom: auto;
+    padding: 20px 10px;
+    text-align: justify;
+    overflow: auto;
+    max-height: 100%;
+}
+
+.note-container > article{
+    direction: rtl;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 5px 10px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.note-container > article.active{
+    border-width: 0;
+    border-radius: 20px;
+    background-color: #f1f1f1;
+    color: #000;
+}
+
+.note-title{
+    font-size: 22px;
+}
+
+.note-description{
+    max-width: 40ch;
+    overflow: hidden;
+}
+
+.note-description, .note-date{
+    font-size: 15px;
+}
+
+.note-date{
+    text-align: left;
+    opacity: 0.5;
+}
+
+.note-container > article > * {
+    margin: 10px 0;
+}
+
+.note-footer{
+    padding-top: 20px;
+}
+
+.add-note{
+    text-align: center;
+    background-color: #009578;
+    padding: 15px 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* content */
+.content{
+    display: grid;
+    grid-template-rows: 1fr 10fr;
+    grid-gap: 35px;
+    padding: 20px 50px;
+    width: 75%;
+    height: 100%;
+}
+
+.content-title{
+    font-size: 30px;
+}
+
+.content > div:not(.note-control){
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    border-width: 0;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.note-control{
+    position: fixed;
+    bottom: 20px;
+    left: 60px;
+    display: flex;
+}
+
+.note-control > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #db2777;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.note-control > .edit{
+    background-color: #009578;
+}
+
+/* popUp */
+.pop-up{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.pop-up-back, .body-back{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.pop-up-layout{
+    position: relative;
+    width: 60%;
+    max-height: 90%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    transition: 0.3s ease;
+    transform: translateY(-600px);
+    opacity: 0;
+}
+
+.pop-up-layout.active{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#pop-up-1 form{
+    display: grid;
+    grid-gap: 25px;
+}
+
+#pop-up-1 input:not(.add-button), #pop-up-1 textarea{
+    width: 100%;
+    padding: 5px;
+    height: 40px;
+}
+
+#pop-up-1 textarea{
+    height: 100px;
+}
+
+#pop-up-1 label{
+    display: inline-block;
+    margin-bottom: 10px;
+    font-size: 17px;
+}
+
+.add-button{
+    padding: 7px 28px;
+    border-width: 0;
+    background-color: #009578;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.add-button:hover{
+    background-color: #009578;
+}
+
+/* responsive */
+@media (max-width: 800px) {
+    .mobile-side{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        z-index: 21;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        top: 5px;
+        right: 30px;
+        font-size: 25px;
+        color: #fff;
+        background-color: #009578;
+    }
+
+    .side{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        transform: translateX(300px);
+        opacity: 0;
+        transition: 0.3s ease;
+        border-radius: 0;
+        padding-top: 45px;
+    }
+
+    .side.active{
+        width: 75%;
+        opacity: 1;
+        transform: translateX(0);
+        z-index: 1;
+    }
+
+    .content{
+        width: 100%;
+        padding: 45px 10px 20px;
+    }
+
+    .note-control{
+        bottom: 30px;
+        left: 30px;
+    }
+
+    .note-control > div{
+        margin: 5px;
+    }
+
+    .pop-up-layout{
+        width: 80%;
+    }
+}

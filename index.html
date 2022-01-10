@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>یادداشت‌های شما</title>
+    <link rel="stylesheet" href="./src/style/style.css">
+</head>
+
+<body>
+    <main class="full-width">
+        <div class="body-back full-width hidden" style="z-index: 1;"></div>
+        <div class="mobile-side"><i class="fas fa-bars"></i></div>
+        <aside class="side">
+            <header class="side-heading">
+                <h1>یادداشت‌های شما</h1>
+            </header>
+
+            <section class="note-container">
+            </section>
+
+            <footer class="note-footer">
+                <div class="add-note">افزودن یادداشت</div>
+            </footer>
+        </aside>
+
+        <section class="content">
+            <div class="content-title">
+                <output id="title"></output>
+            </div>
+
+            <div class="content-description">
+                <output id="note"></output>
+            </div>
+            
+            <div class="note-control hidden">
+                <div class="edit"><i class="fas fa-edit"></i></div>
+                <div class="delete"><i class="fas fa-trash"></i></div>
+            </div>
+        </section>
+
+        <section class="pop-up full-width hidden" id="pop-up-1">
+            <div class="pop-up-back full-width"></div>
+            <div class="pop-up-layout">
+                <form>
+                    <div class="title-div">
+                        <label for="title-input">عنوان یادداشت:</label>
+                        <input id="title-input" type="text" placeholder="یادداشت شماره یک...">
+                    </div>
+
+                    <div class="note-div">
+                        <label for="note-input">متن یادداشت:</label>
+                        <textarea id="note-input"></textarea>
+                    </div>
+
+                    <div class="submit">
+                        <input type="button" value="تایید" class="add-button">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="./src/script/script.js"></script>
+</body>
+
+</html>
